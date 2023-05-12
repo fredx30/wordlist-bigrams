@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "wordlist-http-fuzzing"
+version = "0.1.0"
+description = ""
+authors = ["Fredrik Dyrvold <fredrik@dyrvold.dev>"]
+readme = "README.md"
+packages = [{include = "wordlist_http_fuzzing"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+nltk = "^3.8.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
