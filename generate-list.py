@@ -14,7 +14,7 @@ stop_words = set(stopwords.words('english'))
 # Load the corpus & Filter out stop words
 from nltk.corpus import reuters, brown, gutenberg
 words = []
-for corpusView in [reuters, brown]:
+for corpusView in [reuters]:
     words += [word.lower() for word in corpusView.words() if word.isalpha() and word.lower() not in stop_words]
 freq_dist = nltk.FreqDist(words)
 
@@ -41,7 +41,7 @@ for bigram, freq in freq_dist_bigrams.items():
 sorted_deduped_bigrams = sorted(deduped_bigrams.items(), key=lambda x: x[1], reverse=True)
 
 # Write list to file
-with open('bigrams-brown+reuters-all.txt', 'w') as f:
+with open('bigrams-reuters-g-2.txt', 'w') as f:
     for bigram, freq in sorted_deduped_bigrams:
-        #if freq > 1:
-        f.write(f"{'-'.join(bigram)}\n")
+        if freq > 2:
+            f.write(f"{'-'.join(bigram)}\n")
